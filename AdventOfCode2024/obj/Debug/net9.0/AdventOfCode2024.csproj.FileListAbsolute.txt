@@ -1,0 +1,14 @@
+C:\Users\Rebix\Nextcloud\Coding\cs\AdventOfCode2024\AdventOfCode2024\bin\Debug\net9.0\AdventOfCode2024.exe
+C:\Users\Rebix\Nextcloud\Coding\cs\AdventOfCode2024\AdventOfCode2024\bin\Debug\net9.0\AdventOfCode2024.deps.json
+C:\Users\Rebix\Nextcloud\Coding\cs\AdventOfCode2024\AdventOfCode2024\bin\Debug\net9.0\AdventOfCode2024.runtimeconfig.json
+C:\Users\Rebix\Nextcloud\Coding\cs\AdventOfCode2024\AdventOfCode2024\bin\Debug\net9.0\AdventOfCode2024.dll
+C:\Users\Rebix\Nextcloud\Coding\cs\AdventOfCode2024\AdventOfCode2024\bin\Debug\net9.0\AdventOfCode2024.pdb
+C:\Users\Rebix\Nextcloud\Coding\cs\AdventOfCode2024\AdventOfCode2024\obj\Debug\net9.0\AdventOfCode2024.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Rebix\Nextcloud\Coding\cs\AdventOfCode2024\AdventOfCode2024\obj\Debug\net9.0\AdventOfCode2024.AssemblyInfoInputs.cache
+C:\Users\Rebix\Nextcloud\Coding\cs\AdventOfCode2024\AdventOfCode2024\obj\Debug\net9.0\AdventOfCode2024.AssemblyInfo.cs
+C:\Users\Rebix\Nextcloud\Coding\cs\AdventOfCode2024\AdventOfCode2024\obj\Debug\net9.0\AdventOfCode2024.csproj.CoreCompileInputs.cache
+C:\Users\Rebix\Nextcloud\Coding\cs\AdventOfCode2024\AdventOfCode2024\obj\Debug\net9.0\AdventOfCode2024.dll
+C:\Users\Rebix\Nextcloud\Coding\cs\AdventOfCode2024\AdventOfCode2024\obj\Debug\net9.0\refint\AdventOfCode2024.dll
+C:\Users\Rebix\Nextcloud\Coding\cs\AdventOfCode2024\AdventOfCode2024\obj\Debug\net9.0\AdventOfCode2024.pdb
+C:\Users\Rebix\Nextcloud\Coding\cs\AdventOfCode2024\AdventOfCode2024\obj\Debug\net9.0\AdventOfCode2024.genruntimeconfig.cache
+C:\Users\Rebix\Nextcloud\Coding\cs\AdventOfCode2024\AdventOfCode2024\obj\Debug\net9.0\ref\AdventOfCode2024.dll
