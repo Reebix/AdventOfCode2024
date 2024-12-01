@@ -12,3 +12,4 @@ C:\Users\Rebix\Nextcloud\Coding\cs\AdventOfCode2024\AdventOfCode2024\obj\Debug\n
 C:\Users\Rebix\Nextcloud\Coding\cs\AdventOfCode2024\AdventOfCode2024\obj\Debug\net9.0\AdventOfCode2024.pdb
 C:\Users\Rebix\Nextcloud\Coding\cs\AdventOfCode2024\AdventOfCode2024\obj\Debug\net9.0\AdventOfCode2024.genruntimeconfig.cache
 C:\Users\Rebix\Nextcloud\Coding\cs\AdventOfCode2024\AdventOfCode2024\obj\Debug\net9.0\ref\AdventOfCode2024.dll
+C:\Users\Rebix\Nextcloud\Coding\cs\AdventOfCode2024\AdventOfCode2024\obj\Debug\net9.0\AdventOfCode2024.sourcelink.json
