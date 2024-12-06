@@ -4,7 +4,7 @@ public class Day5() : Day(5)
 {
     protected override void Run(bool isPart2 = false)
     {
-        if (isPart2) return;
+        if (true) return;
 
         var rules = new Dictionary<int, List<int>>();
         if (rules == null) throw new ArgumentNullException(nameof(rules));
@@ -23,7 +23,7 @@ public class Day5() : Day(5)
                 var split = line.Split("|");
                 var first = int.Parse(split[0]);
                 var second = int.Parse(split[1]);
-                if(!rules.ContainsKey(first)) rules[first] = new List<int>();
+                if (!rules.ContainsKey(first)) rules[first] = new List<int>();
                 rules[first].Add(second);
             }
             else
@@ -38,18 +38,17 @@ public class Day5() : Day(5)
             if (rules.ContainsKey(page))
             {
                 // Console.WriteLine(page + " -> " + String.Join(", ", rules[page]));
-                List<int> notAllowed = rules[page];
+                var notAllowed = rules[page];
                 var slice = pages.Slice(0, index);
                 // Console.WriteLine(page + " -> " + String.Join(", ", slice));
                 var valid = true;
                 foreach (var i in slice)
-                {
                     if (notAllowed.Contains(i))
                     {
                         valid = false;
                         break;
                     }
-                }
+
                 Console.WriteLine(page + " -> " + valid);
             }
         }
