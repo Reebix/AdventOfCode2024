@@ -8,10 +8,10 @@ public class Day7() : Day(7)
         foreach (var line in Input)
         {
             var split = line.Split(": ");
-            var desired = double.Parse(split[0]);
-            var usableNumbers = split[1].Split(" ").Select(double.Parse).ToList();
+            var desired = long.Parse(split[0]);
+            var usableNumbers = split[1].Split(" ").Select(long.Parse).ToList();
 
-            var operators = new List<char> { '+', '*'};
+            var operators = new List<char> { '+', '*' };
             if (isPart2) operators.Add('|');
 
             var actionList = new List<string>();
@@ -28,7 +28,7 @@ public class Day7() : Day(7)
                     {
                         '+' => result + usableNumbers[i + 1],
                         '*' => result * usableNumbers[i + 1],
-                        '|' => double.Parse(result + "" + usableNumbers[i + 1]),
+                        '|' => Convert.ToInt64(result + "" + usableNumbers[i + 1]),
                         _ => throw new ArgumentOutOfRangeException()
                     };
                 }
