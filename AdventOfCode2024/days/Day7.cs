@@ -14,45 +14,40 @@ public class Day7() : Day(7)
             var operators = new List<char> { '+', '*' };
             if (isPart2) operators.Add('|');
 
-            var actionList = new List<string>();
-            GenerateOperatorCombinations(operators, "", usableNumbers.Count - 1, actionList);
-
-
-            foreach (var action in actionList)
+            if (CheckCombinations(operators, usableNumbers, desired, usableNumbers[0], 1))
             {
-                var result = usableNumbers[0];
-                for (var i = 0; i < action.Length; i++)
-                {
-                    var op = action[i];
-                    result = op switch
-                    {
-                        '+' => result + usableNumbers[i + 1],
-                        '*' => result * usableNumbers[i + 1],
-                        '|' => Convert.ToInt64(result + "" + usableNumbers[i + 1]),
-                        _ => throw new ArgumentOutOfRangeException()
-                    };
-                }
-
-                if (result == desired)
-                {
-                    validSum += desired;
-                    break;
-                }
+                validSum += desired;
             }
         }
 
         Console.WriteLine(validSum);
     }
-
-    private void GenerateOperatorCombinations(List<char> operators, string current, int remaining,
-        List<string> actionList)
+    
+    private bool CheckCombinations(List<char> operators, List<long> usableNumbers, long desired, long currentResult, int index)
     {
-        if (remaining == 0)
+        if (index == usableNumbers.Count)
         {
-            actionList.Add(current);
-            return;
+            return currentResult == desired;
         }
 
-        foreach (var op in operators) GenerateOperatorCombinations(operators, current + op, remaining - 1, actionList);
+        // ReSharper disable once ForCanBeConvertedToForeach
+        for (short i = 0; i < operators.Count; i++)
+        {
+            var op = operators[i];
+            var newResult = op switch
+            {
+                '+' => currentResult + usableNumbers[index],
+                '*' => currentResult * usableNumbers[index],
+                '|' => Convert.ToInt64(currentResult + "" + usableNumbers[index]),
+                _ => throw new ArgumentOutOfRangeException()
+            };
+
+            if (CheckCombinations(operators, usableNumbers, desired, newResult, index + 1))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
