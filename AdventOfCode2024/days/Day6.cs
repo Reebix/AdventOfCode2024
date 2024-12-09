@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 
 namespace AdventOfCode2024.days;
@@ -16,6 +17,7 @@ public class Day6() : Day(6)
 
     private List<Vector2> visited = new();
 
+    [SuppressMessage("ReSharper.DPA", "DPA0002: Excessive memory allocations in SOH", MessageId = "type: System.Char[]; size: 198MB")]
     protected override void Run(bool isPart2 = false)
     {
         _direction = new Vector2(0, -1);
