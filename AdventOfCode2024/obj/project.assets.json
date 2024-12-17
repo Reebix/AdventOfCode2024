@@ -8,23 +8,24 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\timon\\.nuget\\packages\\": {},
+    "C:\\Users\\Rebix\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\timon\\Nextcloud\\Coding\\cs\\AdventOfCode2024\\AdventOfCode2024\\AdventOfCode2024.csproj",
+      "projectUniqueName": "C:\\Users\\Rebix\\Nextcloud\\Coding\\cs\\AdventOfCode2024\\AdventOfCode2024\\AdventOfCode2024.csproj",
       "projectName": "AdventOfCode2024",
-      "projectPath": "C:\\Users\\timon\\Nextcloud\\Coding\\cs\\AdventOfCode2024\\AdventOfCode2024\\AdventOfCode2024.csproj",
-      "packagesPath": "C:\\Users\\timon\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\timon\\Nextcloud\\Coding\\cs\\AdventOfCode2024\\AdventOfCode2024\\obj\\",
+      "projectPath": "C:\\Users\\Rebix\\Nextcloud\\Coding\\cs\\AdventOfCode2024\\AdventOfCode2024\\AdventOfCode2024.csproj",
+      "packagesPath": "C:\\Users\\Rebix\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Rebix\\Nextcloud\\Coding\\cs\\AdventOfCode2024\\AdventOfCode2024\\obj\\",
       "projectStyle": "PackageReference",
+      "UsingMicrosoftNETSdk": false,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\timon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Rebix\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -71,7 +72,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\timon\\.dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\Rebix\\.dotnet\\sdk\\9.0.100-rc.1.24452.12/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
