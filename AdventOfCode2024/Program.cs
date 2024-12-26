@@ -1,9 +1,4 @@
 ﻿var time = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
-if (time.Month != 12)
-{
-    Console.WriteLine("It's not December yet!");
-    return;
-}
 
 var i = 1;
 if (args.Length == 0 && time is { Month: 12, Day: <= 25 }) i = time.Day;
