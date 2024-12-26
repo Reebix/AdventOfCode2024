@@ -74,56 +74,70 @@ public class Day24() : Day(24)
 
         Part2:
 
-        var swapsCount = 2;
-         
-            var swapped = new List<int>();
-            var swappedNames = new List<string>();
+        var otherwires = new SortedDictionary<string, Wire>();
+        var othergates = new List<Gate>();
 
-            Reset();
-            for (var i = 0; i < 2; i++)
+        // read all otherwires and othergates
+        foreach (var line in Input)
+            if (line.Contains("->"))
             {
-                var first = new Random().Next(0, gates.Count);
-                var second = new Random().Next(0, gates.Count);
+                var elements = line.Split(' ');
+                addWire(elements[0]);
+                addWire(elements[2]);
+                addWire(elements[4]);
 
-                while (swapped.Contains(first) )
-                    first = new Random().Next(0, gates.Count);
-                while (swapped.Contains(second))
-                    second = new Random().Next(0, gates.Count);
-
-                swapped.Add(first);
-                swapped.Add(second);
-                swappedNames.Add(gates[first].restult);
-                swappedNames.Add(gates[second].restult);
-                var temp = gates[first].restult;
-                gates[first] = (gates[first].a, gates[first].op, gates[first].b, gates[second].restult);
-                gates[second] = (gates[second].a, gates[second].op, gates[second].b, temp);
+                othergates.Add(new Gate(otherwires[elements[0]], otherwires[elements[2]], otherwires[elements[4]],
+                    elements[1]));
             }
 
+        var suspiciousothergates = new List<Gate>();
+        var outputotherwires = otherwires.Values.Select(w => w).Where(w => w.name.StartsWith('z')).ToList();
+        foreach (var gate in othergates)
+        {
+            // starting othergates should be followed by OR if AND, and by AND if XOR, except for the first one
+            if ((gate.inputs[0].name.StartsWith('x') || gate.inputs[1].name.StartsWith('x')) &&
+                (gate.inputs[0].name.StartsWith('y') || gate.inputs[1].name.StartsWith('y')) &&
+                !gate.inputs[0].name.Contains("00") && !gate.inputs[1].name.Contains("00"))
+                foreach (var secondGate in othergates)
+                    if (gate.output == secondGate.inputs[0] || gate.output == secondGate.inputs[1])
+                        if ((gate.op.Equals("AND") && secondGate.op.Equals("AND")) ||
+                            (gate.op.Equals("XOR") && secondGate.op.Equals("OR")))
+                            suspiciousothergates.Add(gate);
 
-            ApplyGates();
+            // othergates in the middle should not have XOR operators
+            if (!gate.inputs[0].name.StartsWith('x') && !gate.inputs[1].name.StartsWith('x') &&
+                !gate.inputs[0].name.StartsWith('y') && !gate.inputs[1].name.StartsWith('y') &&
+                !gate.output.name.StartsWith('z') && gate.op.Equals("XOR"))
+                suspiciousothergates.Add(gate);
 
-            sorted = wires.OrderBy(x => x.Key).ToDictionary(x => x.Key, x => x.Value);
-            result = "";
-            for (var i = sorted.Keys.Count - 1; i >= 0; i--)
-                if (sorted.Keys.ElementAt(i)[0] == 'x')
-                    result += sorted[sorted.Keys.ElementAt(i)] ? "1" : "0";
-            var x = Convert.ToInt64(result, 2);
-            result = "";
-            for (var i = sorted.Keys.Count - 1; i >= 0; i--)
-                if (sorted.Keys.ElementAt(i)[0] == 'y')
-                    result += sorted[sorted.Keys.ElementAt(i)] ? "1" : "0";
-            var y = Convert.ToInt64(result, 2);
-            result = "";
-            for (var i = sorted.Keys.Count - 1; i >= 0; i--)
-                if (sorted.Keys.ElementAt(i)[0] == 'z')
-                    result += sorted[sorted.Keys.ElementAt(i)] ? "1" : "0";
-            // if (x + y == Convert.ToInt64(result, 2))
-            if (Convert.ToInt64(result, 2) == 40)
-            {
-                swappedNames.Sort();
-                Console.WriteLine(string.Join(",", swappedNames));
-                return;
-            }
-        
+            // othergates at the end should always have XOR operators, except for the last one
+            if (outputotherwires.Contains(gate.output) && !gate.output.name.Equals($"z{outputotherwires.Count - 1}") &&
+                !gate.op.Equals("XOR"))
+                suspiciousothergates.Add(gate);
+        }
+
+        var answer = string.Empty;
+        foreach (var sGate in suspiciousothergates.OrderBy(x => x.output.name))
+            answer += $"{sGate.output.name},";
+
+        Console.WriteLine(answer[..^1]);
+
+        void addWire(string wireName)
+        {
+            if (!otherwires.ContainsKey(wireName))
+                otherwires.Add(wireName, new Wire(wireName));
+        }
+    }
+
+    private class Gate(Wire in1, Wire in2, Wire output, string op)
+    {
+        public readonly Wire[] inputs = [in1, in2];
+        public readonly string op = op;
+        public readonly Wire output = output;
+    }
+
+    private class Wire(string name)
+    {
+        public readonly string name = name;
     }
 }
